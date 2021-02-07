@@ -86,4 +86,9 @@ app.get('/api/files/:fileName', (req, res) => {
     res.status(500).json(error);
   }
 });
+
+if (!fs.existsSync('./files')) {
+  fs.mkdirSync('./files');
+}
+
 app.listen(8080, () => console.log('Server has been started'));
